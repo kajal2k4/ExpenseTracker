@@ -7,7 +7,6 @@ A minimalist expense tracking web app with authentication, transaction analytics
 
 ![App Screenshot](/assets/Expense1.png)  
 ![App Screenshot](/assets/Expense2.png)  
-![App Screenshot](/assets/Expense3.png)  
 
 
 ---
