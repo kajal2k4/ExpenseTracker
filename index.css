@@ -1,0 +1,138 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.red-letter {
+    color: red;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height:100vh;
+    padding: 0 20px;
+}
+
+#hometext {
+    position: relative;
+    top: 50px;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: left;
+    flex: 1;
+    padding-left: 80px;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height:100vh;
+    padding: 60px 0; 
+    position: relative;
+}
+    
+
+.section-text {
+    color: rgb(250, 247, 247);
+    text-align: center;
+    flex: 1;
+    padding-left: 10px;
+    position: relative; 
+    z-index: 2; 
+    opacity: 1;
+} 
+
+.background-box {
+    position: relative; 
+    overflow: hidden;
+    width: 75vw;
+    height: 70vh;
+    right: 70px;
+    top: 40px;
+}
+
+.background-box::before {
+    content: ""; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-image: url('c.png'); 
+    background-size: cover; 
+    background-position: center; 
+    opacity: 0.4; 
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    border-radius: 10px; 
+    padding: 40px;
+}
+.section img {
+    width: 50%;
+    height: 70vh;
+    opacity: 0.7;
+    position: relative;
+    top: 70px;
+    right: 20px;
+}
+
+@media (orientation: portrait) {
+    .section {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+
+    .section-text {
+        font-size: 2.5rem;
+        text-align: center;
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .section img {
+        width: 60%;
+        margin-top: 20px;
+    }
+
+}
+
+.contact-boxes {
+    display: flex;
+    gap: 120px;
+    margin-top: 100px;
+
+}
+.contact-box {
+    background: #f9f9f9;
+    border: 2px solid #dc3545;
+    color: red;
+    padding: 20px;
+    border-radius: 20px;
+    align-content: center;
+    width: 500px;
+    height:250px;
+}
+.contact-box i {
+    font-size: 30px;
+    color: #0a0a0a;
+    margin-bottom: 10px;
+}
+.contact-box h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.contact-box p {
+    font-size: 14px;
+    color: #0b0b0b;
+}

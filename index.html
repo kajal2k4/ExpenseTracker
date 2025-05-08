@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand text-bold" style="font-size: 50px;">
+                <span class="red-letter">E</span>XPENSE <span class="red-letter">T</span>RACKER
+            </a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link text-white" style="font-size: 30px;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link text-white" style="font-size: 30px;">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link text-white" style="font-size: 30px;">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#loginModal" class="nav-link text-white" data-bs-toggle="modal"
+                        style="font-size: 30px;">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <div class="section home" id="home">
+        <div class="section-text" id="hometext">
+            Hello, <div>Welcome To</div>
+            <div class="red-letter">Expense Tracker</div> Web Application
+            <div>
+                <a href="#signupModal" data-bs-toggle="modal"
+                class="bg-danger border border-white text-white p-2 text-decoration-none"
+                style="font-size: 30px;">Signup</a>
+            </div>
+        </div>
+        <img src="expense.jpg" alt="Expense Tracker Welcome Image">
+    </div>
+    
+    <!-- About Us Section -->
+    <section id="about" class="section">
+        <div class="container text-center">
+            <div class="background-box">
+                <div class="section-text">
+                    <h1 class="display-3 mt-3"><span class="red-letter">A</span>BOUT <span class="red-letter">U</span>S</h1>
+                    <p style="font-size: 28px; font-weight: normal; margin-top:50px;" >
+                        Welcome to Expense Tracker! Our app helps you track your money easily. You can record your spending, view your history, and see where your money goes.
+                    </p>
+                    <h2 style="font-size: 30px; font-weight: bold; margin-top:30px;">Why Use Expense Tracker?</h2>
+                    <ul style="font-size: 28px; font-weight: normal; list-style-type: none; padding: 0;margin-top:30px;">
+                        <li class="mt-2"><strong>1. Easy to Use:</strong> Anyone can use our application. It's simple and quick!</li>
+                        <li class="mt-2"><strong>2. Track Your Spending:</strong> Add your expenses anytime and see how much you spend.</li>
+                        <li class="mt-2"><strong>3.Apply Filters:</strong> You can apply filters to track expenses by category or date easily.</li>
+                        <li class="mt-2"><strong>4. See Clear Reports:</strong> View simple charts to understand your spending.</li>
+                    </ul>
+                    <p style="font-size: 28px; font-weight: normal;margin-top:20px;">
+                        Join many happy users who manage their money better with Expense Tracker. Start today and take control of your spending!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Us Section -->
+    <section id="contact" class="section">
+        <div class="container text-center">
+            <h1 class="section-title display-3"><span class="red-letter">C</span>ONTACT <span class="red-letter">U</span>S</h1>
+            <p class="section-subtitle" style="font-size: 30px;">Have questions? Reach out to us anytime!</p>
+            <div class="contact-boxes">
+                <div class="contact-box">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p style="font-size: 20px;">support@expensetracker.com</p>
+                </div>
+                <div class="contact-box">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p style="font-size: 20px;">+991 456 7890</p>
+                </div>
+                <div class="contact-box">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter</h3>
+                    <p style="font-size: 20px;">twitter.com/ExpenseTracker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="loginUsername" placeholder="Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                        </div>
+                        <button type="button" onclick="handleLogin()" class="btn btn-danger w-100">Submit</button>
+                    </form>
+                    <div class="mt-3">
+                        <a href="#" onclick="handleForgotPassword()" class="text-danger">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Signup</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="signupUsername" class="form-label">Username</label>
+                            <input type="text" id="signupUsername" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="securityQuestion" class="form-label">Security Question</label>
+                            <select id="securityQuestion" class="form-select">
+                                <option value="" disabled selected>Select a security question</option>
+                                <option value="What is your nickname?">What is your nickname?</option>
+                                <option value="What is your mother's name?">What is your mother's name?</option>
+                                <option value="What was the name of your first school?">What was the name of your first school?</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Answer to security question</label>
+                            <input class="form-control" type="text" id="securityAnswer" required>
+                        </div>
+                        <button type="button" onclick="handleSignUp()" class="btn btn-danger w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

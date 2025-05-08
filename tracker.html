@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0"></script>
+    <link rel="stylesheet" type="text/css" href="tracker.css">
+    <script src="tracker.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1><span class="red-letter">E</span>xpense <span class="red-letter">T</span>racker</h1>
+        </div>
+        <!-- Dashboard Section -->
+        <div class="dashboard">
+            <!-- Chart Container -->
+            <div class="chart-container">
+                <canvas id="donutChart" class="donut-chart"></canvas>
+                <div class="total-amount">₹0</div>
+                <div class="legend">
+                    <!-- Legend Items -->
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffd43b; box-shadow: 0 2px 5px #000000e8;"></div>
+                        <span>Investment (0%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #e64980; box-shadow: 0 2px 5px #000000e8;"></div>
+                        <span>Expense (0%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #05c4e6; box-shadow: 0 2px 5px #000000e8;"></div>
+                        <span>Savings (0%)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <div class="input-group">
+                    <input type="text" placeholder="Set budget" id="budget">
+                </div>
+                <!-- Input Groups for Transaction Details -->
+                <div class="input-group">
+                    <input type="text" placeholder="Description" id="description">
+                </div>
+                <div class="input-group">
+                    <select id="category">
+                        <option value="">Select Category</option>
+                        <option value="investment">Investment</option>
+                        <option value="expense">Expense</option>
+                        <option value="savings">Savings</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <input type="number" placeholder="Amount" id="amount">
+                </div>
+                <!-- Button to Add Transaction -->
+                <button onclick="addTransaction()" id="submitBtn">Make Transaction</button>
+            </div>
+        </div>
+
+        <!-- Filter Container for Filtering Transactions -->
+        <div class="filter-container">
+            <div class="input-group">
+                <label for="filterCategory">Filter by Category:</label>
+                <select id="filterCategory" onchange="applyFilter()">
+                    <option value="">Select Category</option>
+                    <option value="investment">Investment</option>
+                    <option value="expense">Expense</option>
+                    <option value="savings">Savings</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="filterDate">Filter by Date:</label>
+                <input type="date" id="filterDate" onchange="applyFilter()">
+            </div>
+        </div>
+
+        <!-- History Section for Displaying Transactions -->
+        <div class="history">
+            <h2>History</h2>
+            <div id="historyList" style="font-size: 20px;">
+                <!-- History items will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

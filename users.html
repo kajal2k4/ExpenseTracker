@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .user-list {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .user-item {
+            background-color: #333;
+            padding: 10px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Manage Users</h2>
+
+    <div class="user-list" id="userList"></div>
+
+    <button onclick="loadUsers()">Load Users</button>
+
+    <script>
+        // Function to load users from localStorage
+        function loadUsers() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const userListDiv = document.getElementById('userList');
+            userListDiv.innerHTML = '';  // Clear existing user list
+
+            if (users.length === 0) {
+                userListDiv.innerHTML = '<p>No users found.</p>';
+                return;
+            }
+
+            // Loop through users and display them
+            users.forEach((user, index) => {
+                const userItem = document.createElement('div');
+                userItem.classList.add('user-item');
+                userItem.innerHTML = `
+                    <span>${user.username}</span>
+                    <button onclick="deleteUser(${index})">Delete</button>
+                `;
+                userListDiv.appendChild(userItem);
+            });
+        }
+
+        // Function to delete a user
+        function deleteUser(index) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            users.splice(index, 1);  // Remove user at the specified index
+            localStorage.setItem('users', JSON.stringify(users));  // Save updated users back to localStorage
+            loadUsers();  // Reload users list
+        }
+
+        // To load users automatically when the page loads
+        window.onload = function() {
+            loadUsers();
+        };
+    </script>
+</body>
+</html>
